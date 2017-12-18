@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		td{
+			text-align: center;
+		}
+	</style>
 	<title>admin home</title>
 	<link rel="stylesheet" href="css/admin_sidebar.css">
+	<link rel="stylesheet" href="css/admin_menu.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="js/admin_sidemenu.js"></script>
@@ -12,7 +18,9 @@
 <body>
 	<!--side menu-->
 <div id="sidebar">
+
 	<div class="list-group">
+		<a href="admin_index.html"  class="list-group-item ">Home</a>
 	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
 	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
 	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
@@ -29,10 +37,22 @@
   	<span></span>
   	<span></span>
   </div>
-  	<!--content-->
+  <p id="menu_title">Menu Items Rating</p>
+  
+  
+  	<div id="menu_div">
+  		<table id="menu_table">
+  			<!--one menu item-->
+			<tr class="menu_row">
+			    <td class="menu_item">item</td>
+			    <td class="menu_item">rating</td>
+			</tr>
 
-  	
+
+
+  		</table>
+  	</div>
+  	</form>
 </div>
-	
 </body>
 </html>

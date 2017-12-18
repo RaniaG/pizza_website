@@ -14,7 +14,6 @@ body {
     background-color:#DCDCDC;
     overflow-x: hidden;
     transition: .5s;
-    padding-top: 60px;
 }
 
 .list-group a{
