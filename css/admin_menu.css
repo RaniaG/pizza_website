@@ -1,0 +1,73 @@
+body {
+    background-color: #AECFE6; 
+}
+#menu_div{
+	width: 80%;
+	background-color: white;
+	margin: auto;
+    margin-left: 100px;
+    margin-top: 100px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.6);
+    border-radius: 5px;	
+
+}
+#menu_table{
+	background-color: white;
+	width: 100%;
+	font-family: "Times New Roman", Times, serif;
+	border: none;
+	text-align: left;
+}
+#menu_table td{
+	padding: 10px;
+	
+}
+.menu_item{
+	font-size: 20px;
+	color:rgb(128,128,128);
+}
+.button_edit_delete{
+	background-color:white;
+	border: 0px; 
+}
+.menu_row{
+	border-bottom: 1px solid grey;
+}
+#add_button,#delete_button{
+	display: inline-block;
+	float: right;
+	margin-top: 30px;
+	border:0px;
+	color:grey;
+}
+#add_button{
+	margin-right: 20px;
+}
+#delete_button{
+	margin-right: 200px;
+}
+#hidden_add
+{
+	width: 50%;
+	display: none;
+	z-index: 5;
+	background-color: #DCDCDC;
+	border-radius: 10px;
+	padding: 10px;
+	position: absolute;
+  	top: 20%;
+  	left: 25%;
+  	text-align: center;
+}
+.add_form_item{
+	width: 100%;
+}
+
+#menu_title{
+	text-align: center;
+	color:grey;
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 50px;
+	font-weight: bold;
+}

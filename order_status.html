@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="css/order_status.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<title>order status</title>
+</head>
+<body>
+	<!--navigation bar-->
+	<nav class="navbar navbar-fixed-top">
+	  <div class="container-fluid">   
+	    <ul class="nav navbar-nav">
+	      <li><a class="navbar_text" id="home" href="index.html">HOME</a></li>
+	      <li><a class="navbar_text" href="menu.html">MENU</a></li>
+	      <li><a class="navbar_text" href="order_status.html">ORDER STATUS</a></li>
+	     
+	      <li><a class="navbar_text" href="contact_us.html">CONTACT US</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div id="order_div">
+		<form method="post" action="">
+			<h1>Enter your order number</h1><br>
+			<input type="number"  class="form-control" name="order_number" ><br>
+			<button type="submit" class="btn btn-default" id="sub">Check Status</button>
+		</form>
+		<!--hidden-->
+		<div id="order_status"> 
+			<h1>Order Status</h1>
+			<h2>Order number</h2>
+			<p>order status</p>
+		</div>
+	</div>
+	
+</body>
+</html>

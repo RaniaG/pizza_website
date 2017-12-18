@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modify menu</title>
+	<link rel="stylesheet" href="css/admin_menu.css">
+	<link rel="stylesheet" href="css/admin_sidebar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="js/admin_sidemenu.js"></script>
+  	<script src="js/admin_menu.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+	<!--side menu-->
+<div id="sidebar">
+	<div class="list-group">
+	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
+	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
+	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
+	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	</div>
+
+</div>
+<!--main content-->
+<div id="main">
+	<!--menu button-->
+  <div id="menu_button">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+  </div>
+  <p id="menu_title">Menu</p>
+  <div id="hidden_add">
+  	<button type="submit" class="btn btn-default"  id="close_add_button"
+  	style="border:0px;background-color:#DCDCDC; float:right;"><span class="glyphicon glyphicon-remove"></span></button>
+  		<form id="add" method="post" action="#">
+			    <h1>Add new Item</h1>
+			    <input type="text" name="title" placeholder="Title" form="add" required class="add_form_item"><br>
+			    <input type="number" name="price" placeholder="Price" form="add" required class="add_form_item"><br>
+			    <textarea name="description" rows="5" cols="20" placeholder="Description" form="add" required class="add_form_item"></textarea><br>
+			  	<button type="submit" class="btn btn-default">Submit</button>
+  		</form>
+
+  	</div>
+  <form method="post" action="#" id="delete_selected">
+  	<!--content-->
+ 	<button type="button" class="btn btn-default" id="delete_button" type="submit" form="delete_selected">
+  		<span class="glyphicon glyphicon-trash"></span> Delete Selected</button>
+  	<button type="button" class="btn btn-default" id="add_button">
+  		<span class="glyphicon glyphicon-plus"></span> Add</button>
+  	
+  	
+  	
+  	<div id="menu_div">
+  		<table id="menu_table">
+  			<!--one menu item-->
+			<tr class="menu_row">
+				<form method="post" action="#">
+				    <td class="menu_item">
+				    <input type="text" name="" value="title">
+					</td>
+				    <td class="menu_item">
+				    <input type="number" name="" value="50">
+					</td>
+				    <td class="menu_item">
+				    <textarea name="" value="description"></textarea>
+					</td>
+			    </form>
+			    <td class="menu_item buttons_class" >
+			    	<button class="button_edit_delete" type="submit">
+			    		<span class="glyphicon glyphicon-pencil"></span></button>
+			    	<button class="button_edit_delete" action="#">
+			    		<span class="glyphicon glyphicon-trash"></span></button>
+			    		
+			    </td>
+			    <td><input type="checkbox" value="title" form="delete_selected"></td>
+			    
+			</tr>
+
+
+
+  		</table>
+  	</div>
+  	</form>
+</div>
+	
+</body>
+</html>

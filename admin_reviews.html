@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	tr{
+		border-bottom: 1px solid grey;
+	}
+	#reviews_title{
+	text-align: center;
+	color:grey;
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 50px;
+	font-weight: bold;
+	}
+
+	</style>
+	<title>Modify menu</title>
+	<link rel="stylesheet" href="css/admin_menu.css">
+	<link rel="stylesheet" href="css/admin_sidebar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="js/admin_sidemenu.js"></script>
+  	<script src="js/admin_menu.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+<!--side menu-->
+<div id="sidebar">
+	<div class="list-group">
+	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
+	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
+	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
+	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	</div>
+
+</div>
+<div id="main">
+	
+	<!--menu button-->
+  <div id="menu_button">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+  </div>
+  <p id="reviews_title">Reviews</p>
+  
+	<div id="menu_div">
+
+		<table id="menu_table">
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					order
+				</td>
+			    <td class="menu_item" >
+			    	Review
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			
+
+		</table>
+	</div>
+	</div>
+</body>
+</html>
+
+

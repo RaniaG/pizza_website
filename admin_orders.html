@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		
+	#update_button{
+	position: fixed;
+	top: 25%;
+    left:95%;
+    transform: translate(-95%, -20%);
+    display: inline-block;
+	margin-right: 100px;
+	}
+	tr{
+		border-bottom: 1px solid grey;
+	}
+	#orders_title{
+	text-align: center;
+	color:grey;
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 50px;
+	font-weight: bold;
+	}
+
+	</style>
+	<title>Modify menu</title>
+	<link rel="stylesheet" href="css/admin_menu.css">
+	<link rel="stylesheet" href="css/admin_sidebar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="js/admin_sidemenu.js"></script>
+  	<script src="js/admin_menu.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+<!--side menu-->
+<div id="sidebar">
+	<div class="list-group">
+	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
+	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
+	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
+	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	</div>
+
+</div>
+<div id="main">
+	
+	<!--menu button-->
+  <div id="menu_button">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+  </div>
+  <p id="orders_title">Orders</p>
+  <form method="post" action="#">
+			<button type="submit" id="update_button" class="btn btn-default">Update All</button>
+	<div id="menu_div">
+
+		<table id="menu_table">
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+				<td class="menu_item">
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+				</td>
+			    <td class="menu_item" style="float:right">
+			    <select id="status" name="status">
+			      <option value="pending">pending</option>
+			      <option value="processed">Processed</option>
+			      <option value="on_the_way">On the way</option>
+			      <option value="delivered">Delivered</option>
+			    </select>
+				</td>
+			    
+			</tr>
+			<!--one order end-->
+
+		</table>
+		</form>
+	</div>
+	</div>
+</body>
+</html>
+
+

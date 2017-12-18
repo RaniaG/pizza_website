@@ -1,0 +1,43 @@
+html {
+  height: 100%;
+}
+
+body {
+	width: 100%;
+	 min-height: 100%;
+    background-image: url(../resource/bg2.jpg);
+     background-size:     cover;                      /* <------ */
+    background-repeat:   repeat;
+    background-position: center center;              /* optional, center the image */
+    
+}
+.navbar_text{
+	color:white;
+}
+.navbar{
+	background-color: rgba(0,0,0, 0.7);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.6);	
+}
+#home{
+	margin-left: 200px;
+}
+#order_div{
+	height: 100%;
+	width: 70%;
+	background-color: white;
+	margin: auto;
+	position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-block;
+    margin-top: 100px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.6);	
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+input{
+    text-align: center;  
+}
+#order_status{
+    display: none;
+}

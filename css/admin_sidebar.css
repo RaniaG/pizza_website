@@ -1,0 +1,49 @@
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: blue; 
+}
+
+#sidebar {
+    height: 100%;
+    width:200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -200px;
+    background-color:#DCDCDC;
+    overflow-x: hidden;
+    transition: .5s;
+    padding-top: 60px;
+}
+
+.list-group a{
+    border:0px;
+    background-color:#DCDCDC;
+    font-weight: bold;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+#sidebar.movebar{
+    left:0px;
+}
+
+.movemain{
+    margin-left: 200px;
+}
+#menu_button{
+    position: fixed;
+    vertical-align: middle; 
+    width: 20px;
+    height: 15px;
+    margin: 20px;
+    cursor: pointer;
+}
+#menu_button span{
+    height: 2px;
+    background: black;
+    margin-bottom: 5px;
+    display: block;
+}

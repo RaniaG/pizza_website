@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<link rel="stylesheet" href="css/menu.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<title>Menu</title>
+</head>
+<body>
+	<!--navigation bar-->
+	<nav class="navbar navbar-fixed-top">
+	  <div class="container-fluid">   
+	    <ul class="nav navbar-nav">
+	      <li><a class="navbar_text" id="home" href="index.html">HOME</a></li>
+	      <li><a class="navbar_text" href="menu.html">MENU</a></li>
+	      <li><a class="navbar_text" href="order_status.html">ORDER STATUS</a></li>
+	      
+	      <li><a class="navbar_text" href="contact_us.html">CONTACT US</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+
+
+<form method="post" action="checkout.html" id="orders">
+	<!--Menu-->
+	<div id="menu_div">	
+		<table id="menu_table">
+			<!--one menu item-->
+			<form id="#" method="post" action="#" >
+			<tr>
+			    <td class="menu_item">Title</td>
+			    <td class="menu_item">Price</td>
+			    <td><input type="checkbox" value="title" class="check" form="orders">
+			    	
+			    	<span class="rating">
+		                <input id="rating5" type="radio" name="rating" value="5" form="#">
+		                <label for="rating5">5</label>
+		                <input id="rating4" type="radio" name="rating" value="4" form="#">
+		                <label for="rating4">4</label>
+		                <input id="rating3" type="radio" name="rating" value="3" form="#">
+		                <label for="rating3">3</label>
+		                <input id="rating2" type="radio" name="rating" value="2" form="#">
+		                <label for="rating2">2</label>
+		                <input id="rating1" type="radio" name="rating" value="1" form="#">
+		                <label for="rating1">1</label>
+            		</span>
+            		
+			    </td>
+			</tr>
+			<tr>
+				<td colspan="2" class="menu_item_des">description</td>
+				<td  style="float: right;"> 
+					<button type="submit" class="btn " form="#">Rate</button></td>
+			</tr>
+			</form>
+			<!--one menu item end-->
+			
+			
+		</table>
+	</div>
+	<div id="checkout">
+			<button type="submit" class="btn btn-success" form="orders">Checkout</button>
+			
+	</div>
+</form>
+</body>
+</html>
