@@ -5,6 +5,9 @@
 	tr{
 		border-bottom: 1px solid grey;
 	}
+	td{
+		text-align: center;
+	}
 	#reviews_title{
 	text-align: center;
 	color:grey;
@@ -13,6 +16,19 @@
 	font-size: 50px;
 	font-weight: bold;
 	}
+	.hidden_msg{
+		display: none;
+		width:100%;
+		transition:all 1s;
+	}
+	.hidden_msg td{
+		width:30%;
+	}
+	button{
+		float:right;
+		border:none;
+		background: white;
+		}
 
 	</style>
 	<title>Modify menu</title>
@@ -52,14 +68,54 @@
 		<table id="menu_table">
 			<!--one order-->
 			<tr>
+			    <td colspan="3" class="menu_item" id="msg_id1" >
+					subject
+				</td>
+			</tr>
+			<tr class="hidden_msg" id="msg_id1">
+			    <td class="menu_item" >
+			    	name
+				</td>
 				<td class="menu_item">
-					name
+					email
 				</td>
 			    <td class="menu_item" >
-			    	email
+			    	message
 				</td>
-			    <td class="menu_item">
+
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+			    <td colspan="3" class="menu_item" id="msg_id2">
 					subject
+				</td>
+			</tr>
+			<tr class="hidden_msg" id="msg_id2">
+			    <td class="menu_item" >
+			    	name
+				</td>
+				<td class="menu_item">
+					email
+				</td>
+			    <td class="menu_item" >
+			    	message
+				</td>
+
+			</tr>
+			<!--one order end-->
+			<!--one order-->
+			<tr>
+			    <td colspan="3" class="menu_item" id="msg_id3">
+					subject
+				</td>
+			</tr>
+			<tr class="hidden_msg" id="msg_id3">
+			    <td class="menu_item" >
+			    	name
+				</td>
+				<td class="menu_item">
+					email
 				</td>
 			    <td class="menu_item" >
 			    	message
@@ -76,3 +132,10 @@
 </html>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $("td").click(function(){
+        $("tr#"+this.id).slideToggle("slow");
+    });
+});
+</script>
