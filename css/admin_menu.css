@@ -33,19 +33,16 @@ body {
 .menu_row{
 	border-bottom: 1px solid grey;
 }
-#add_button,#delete_button{
+#add_button{
 	display: inline-block;
 	float: right;
 	margin-top: 30px;
 	border:0px;
 	color:grey;
-}
-#add_button{
-	margin-right: 20px;
-}
-#delete_button{
 	margin-right: 200px;
 }
+
+
 #hidden_add
 {
 	width: 50%;

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php 
+	require('php/db_connect.php');
+	$conn=db_connect();
+	$query="select * from item";
+	$result = mysqli_query($conn, $query);
+	?>
 	<title>Modify menu</title>
 	<link rel="stylesheet" href="css/admin_menu.css">
 	<link rel="stylesheet" href="css/admin_sidebar.css">
@@ -36,19 +42,16 @@
   <div id="hidden_add">
   	<button type="submit" class="btn btn-default"  id="close_add_button"
   	style="border:0px;background-color:#DCDCDC; float:right;"><span class="glyphicon glyphicon-remove"></span></button>
-  		<form id="add" method="post" action="#">
+  		<form method="post" action="php/admin_menu.php">
 			    <h1>Add new Item</h1>
-			    <input type="text" name="title" placeholder="Title" form="add" required class="add_form_item"><br>
-			    <input type="number" name="price" placeholder="Price" form="add" required class="add_form_item"><br>
-			    <textarea name="description" rows="5" cols="20" placeholder="Description" form="add" required class="add_form_item"></textarea><br>
-			  	<button type="submit" class="btn btn-default">Submit</button>
+			    <input type="text" name="Name" placeholder="Name"  required class="add_form_item"><br>
+			    <input type="number" name="Price" placeholder="Price"  required class="add_form_item"><br>
+			    <textarea name="Description" rows="5" cols="20" placeholder="Description" required class="add_form_item"></textarea><br>
+			  	<button type="submit" class="btn btn-default" name="add">Submit</button>
   		</form>
 
   	</div>
-  <form method="post" action="#" id="delete_selected">
-  	<!--content-->
- 	<button type="button" class="btn btn-default" id="delete_button" type="submit" form="delete_selected">
-  		<span class="glyphicon glyphicon-trash"></span> Delete Selected</button>
+
   	<button type="button" class="btn btn-default" id="add_button">
   		<span class="glyphicon glyphicon-plus"></span> Add</button>
   	
@@ -56,35 +59,48 @@
   	
   	<div id="menu_div">
   		<table id="menu_table">
+
+  			<?php
+  			if (mysqli_num_rows($result) > 0) {
+
+	   			while($row = mysqli_fetch_array($result)){
+            ?>
   			<!--one menu item-->
 			<tr class="menu_row">
-				<form method="post" action="#">
+				<form method="post" action="php/admin_menu.php" >
 				    <td class="menu_item">
-				    <input type="text" name="" value="title">
+				    <input type="text" name="Name" value="<?php echo $row['Name']?>" >
 					</td>
 				    <td class="menu_item">
-				    <input type="number" name="" value="50">
+				    <input type="number" name="Price" value="<?php echo $row['Price']?>" >
 					</td>
 				    <td class="menu_item">
-				    <textarea name="" value="description"></textarea>
+				    <textarea name="Description" ><?php echo $row['Description']?></textarea>
 					</td>
-			    </form>
+					<input type="hidden" name="ID" value="<?php echo $row['ID']?>" >
+			    
 			    <td class="menu_item buttons_class" >
-			    	<button class="button_edit_delete" type="submit">
+			    	<button class="button_edit_delete" type="submit" name= "edit">
 			    		<span class="glyphicon glyphicon-pencil"></span></button>
-			    	<button class="button_edit_delete" action="#">
+			    		</form>
+			    		<form action="php/admin_menu.php" method="post">
+			    			<input type="hidden" name="ID" value="<?php echo $row['ID']?>">
+			    	<button class="button_edit_delete" name="delete">
 			    		<span class="glyphicon glyphicon-trash"></span></button>
-			    		
+			    		</form>
 			    </td>
-			    <td><input type="checkbox" value="title" form="delete_selected"></td>
+			    
+			    
 			    
 			</tr>
-
+			<?php
+        			}
+			} 
+  			?>
 
 
   		</table>
   	</div>
-  	</form>
 </div>
 	
 </body>
