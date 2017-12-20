@@ -27,20 +27,25 @@
 
 
 
-<form method="post" action="checkout.html" id="orders">
+
 	<!--Menu-->
 	<div id="menu_div">	
 		<table id="menu_table">
 			<!--one menu item-->
-			<form id="#" method="post" action="#" >
+			
 			<tr>
+				<td>
+					<form method="post" action="checkout.html" >
+						
+					<input type="checkbox" class="check" name="checked[]" value="ID">
+					<!--to access the post array $_POST['checked'][0]=ID of checked-->
+				</form>
+				</td>
 			    <td class="menu_item">Title</td>
 			    <td class="menu_item">Price</td>
-			    <td><input type="checkbox" value="title" class="check" form="orders">
-			    	
+			    <td>
+			    	<form id="#" method="post" action="#" >
 			    	<span class="rating">
-		                <input id="rating5" type="radio" name="rating" value="5" form="#">
-		                <label for="rating5">5</label>
 		                <input id="rating4" type="radio" name="rating" value="4" form="#">
 		                <label for="rating4">4</label>
 		                <input id="rating3" type="radio" name="rating" value="3" form="#">
@@ -54,11 +59,14 @@
 			    </td>
 			</tr>
 			<tr>
-				<td colspan="2" class="menu_item_des">description</td>
+				<td colspan="3" class="menu_item_des" >description</td>
 				<td  style="float: right;"> 
-					<button type="submit" class="btn " form="#">Rate</button></td>
+					<button type="submit" class="btn " form="#" >Rate</button></td>
+				</form>
+				
 			</tr>
-			</form>
+			
+
 			<!--one menu item end-->
 			
 			
