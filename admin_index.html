@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php 
+		session_start();
+		require('php/db_connect.php');
+		$conn=db_connect();
+		$query="select Name, rate from item";
+		$result=mysqli_query($conn, $query);
+
+	?>
 	<style type="text/css">
-		td{
+		td,th{
 			text-align: center;
 		}
 	</style>
@@ -20,12 +28,19 @@
 <div id="sidebar">
 
 	<div class="list-group">
-		<a href="admin_index.html"  class="list-group-item ">Home</a>
+	<a href="" class="list-group-item" id="name"><?php 
+		if(isset($_SESSION['name']))
+			echo  $_SESSION['name'];
+		else header('Location: admin_login.html');
+			?></a><hr>
+	<a href="admin_index.html"  class="list-group-item ">Home</a>
 	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
 	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
 	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
-	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  
 	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	  <a href="php/admin_logout.php" class="list-group-item">Logout</a>
+	  
 	</div>
 
 </div>
@@ -44,9 +59,24 @@
   		<table id="menu_table">
   			<!--one menu item-->
 			<tr class="menu_row">
-			    <td class="menu_item">item</td>
-			    <td class="menu_item">rating</td>
+			    <th class="menu_item">item</th>
+			    <th class="menu_item">rating</th>
 			</tr>
+
+  			<?php
+  			if(mysqli_num_rows($result) > 0)
+  			{
+  				while($row = mysqli_fetch_assoc($result)) {
+  			?>
+  			<!--one menu item-->
+			<tr class="menu_row">
+			    <td class="menu_item"><?php echo $row['Name']?></td>
+			    <td class="menu_item"><?php echo $row['rate']?></td>
+			</tr>
+			<?php
+				}
+			}
+			?>
 
 
 

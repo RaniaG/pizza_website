@@ -25,6 +25,7 @@ body {
 .menu_item{
 	font-size: 20px;
 	color:rgb(128,128,128);
+	text-align: center;
 }
 .button_edit_delete{
 	background-color:white;

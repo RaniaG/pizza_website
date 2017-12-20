@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?php 
+    session_start();
+    $q="select * from info";
+    require("php/db_connect.php");
+    $conn=db_connect();
+    $res=mysqli_query($conn,$q);
+  ?>
 	<title>modify information</title>
 	<link rel="stylesheet" href="css/admin_menu.css">
 	<link rel="stylesheet" href="css/admin_info.css">
@@ -16,12 +23,18 @@
 	<!--side menu-->
 <div id="sidebar">
 	<div class="list-group">
-		<a href="admin_index.html"  class="list-group-item ">Home</a>
-	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
-	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
-	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
-	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
-	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+		  <a href="" class="list-group-item" id="name"><?php 
+    if(isset($_SESSION['name']))
+      echo  $_SESSION['name'];
+    else header('Location: admin_login.html');
+      ?></a><hr>
+  <a href="admin_index.html"  class="list-group-item ">Home</a>
+    <a href="admin_orders.html" class="list-group-item ">View Orders</a>
+    <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
+    <a href="admin_info.html" class="list-group-item">Modify Information</a>
+    
+    <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+    <a href="php/admin_logout.php" class="list-group-item">Logout</a>
 	</div>
 
 </div>
@@ -35,16 +48,21 @@
   	 <p id="menu_title">Modify info</p>
   	 <div id="menu_div">
   	 	<div id="form_div">
-  	 		<form>
+  	 		<form method="post" action="php/admin_info.php">
+          <?php
+        if(mysqli_num_rows($res) > 0)
+        {
+          $row = mysqli_fetch_array($res))
+          
+          ?>
   	 			Address:<br>
-  	 			<input type="text" name="address"><br>
+  	 			<input type="text" name="Address" value="<?php $row['Address']?>"><br>
   	 			Email:<br>
-  	 			<input type="email" name="email"><br>
+  	 			<input type="email" name="Email" value="<?php $row['Email']?>"><br>
   	 			Telephone:<br>
-  	 			<input type="tel" name="phone"><br>
-  	 			Description:<br>
-  	 			<textarea name="description"></textarea>
-  	 			<button type="button" class="btn btn-default">Submit</button>
+  	 			<input type="tel" name="phone" value="<?php $row['phone']?>"><br>
+  	 			<button type="button" class="btn btn-default">Update</button>
+          <?php }?>
   	 		</form>
   	 	</div>
   	 </div>

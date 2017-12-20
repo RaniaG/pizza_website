@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	    <?php 
+   				session_start();
+   			 	require("php/db_connect.php");
+				$conn=db_connect();
+				$query1="select * from orders";
+				$res1=mysqli_query($conn,$query1);
+  		?>
 	<style type="text/css">
 		
 	#update_button{
@@ -14,6 +21,9 @@
 	tr{
 		border-bottom: 1px solid grey;
 	}
+	th{
+text-align: center;
+	}
 	#orders_title{
 	text-align: center;
 	color:grey;
@@ -22,6 +32,7 @@
 	font-size: 50px;
 	font-weight: bold;
 	}
+
 
 	</style>
 	<title>Modify menu</title>
@@ -38,12 +49,18 @@
 <!--side menu-->
 <div id="sidebar">
 	<div class="list-group">
+		<a href="" class="list-group-item" id="name"><?php 
+		if(isset($_SESSION['name']))
+			echo  $_SESSION['name'];
+		else header('Location: admin_login.html');
+			?></a><hr>
 	<a href="admin_index.html"  class="list-group-item ">Home</a>
 	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
 	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
 	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
-	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  
 	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	  <a href="php/admin_logout.php" class="list-group-item">Logout</a>
 	</div>
 
 </div>
@@ -56,131 +73,107 @@
   	<span></span>
   </div>
   <p id="orders_title">Orders</p>
-  <form method="post" action="#">
+  <form method="post" action="php/admin_order_status.php">
 			<button type="submit" id="update_button" class="btn btn-default">Update All</button>
 	<div id="menu_div">
 
 		<table id="menu_table">
+			<tr>
+				<th class="menu_item" >Order</th>
+				<th class="menu_item" >User Information</th>
+				<th class="menu_item" >Total Price</th>
+				<th class="menu_item" >Status</th>
+
+			</tr>
 			<!--one order-->
+			<?php
+			if(mysqli_num_rows($res1) > 0)
+				{
+					while($row1 = mysqli_fetch_array($res1))
+					{
+						$query2="select Name from item where ID in (select ItemID from order_items where OrderID =".$row1['ID']." )";
+						$res2=mysqli_query($conn,$query2);
+						
+						?>
 			<tr>
 				<td class="menu_item">
 					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
+						<?php while($row2 = mysqli_fetch_array($res2))
+						{
+							?>
+						<li><?php echo $row2['Name']?></li>
+						<?php }?>
 					</ul>
 				</td>
+				<td>
+					<p class="menu_item"><?php echo "Customer:".$row1['user_name']?></p><br>
+					<p class="menu_item"><?php echo "Telephone:".$row1['user_phone']?></p><br>
+					<p class="menu_item"><?php echo "Address:".$row1['user_address']?></p><br>
+				</td>
+				<td>
+					<p class="menu_item"><?php echo $row1['total_price']?></p>
+				</td>
 			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
+			    	<input type="hidden" name="id" value="<?php echo $row1['ID']?>">
+					<select id="status" name="status[]">
+			    	<?php 
+
+			    	switch ($row1['status']) {
+						    case 0:
+						        ?>
+						      <option value="0" selected>pending</option>
+						      <option value="1">Processed</option>
+						      <option value="2">On the way</option>
+						      <option value="3">Delivered</option>
+
+						    <?php  break;
+						    case 1:
+						      ?>  
+						      <option value="0">pending</option>
+						      <option value="1" selected>Processed</option>
+						      <option value="2">On the way</option>
+						      <option value="3">Delivered</option>
+
+						    <?php    break;
+						    case 2:
+						        ?>
+						        <option value="0">pending</option>
+						      <option value="1">Processed</option>
+						      <option value="2" selected>On the way</option>
+						      <option value="3">Delivered</option>
+
+						       <?php break;
+						    case 3:
+						        ?>
+						        <option value="0">pending</option>
+						      <option value="1">Processed</option>
+						      <option value="2">On the way</option>
+						      <option value="3" selected>Delivered</option>
+
+						    <?php    break;
+						    default:
+						    ?>
+						      <option value="0">pending</option>
+						      <option value="1">Processed</option>
+						      <option value="2">On the way</option>
+						      <option value="3">Delivered</option>
+						      <?php
+						}
+			    	?>
+			    
+			      
 			    </select>
 				</td>
 			    
 			</tr>
 			<!--one order end-->
-			<!--one order-->
-			<tr>
-				<td class="menu_item">
-					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-					</ul>
-				</td>
-			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
-			    </select>
-				</td>
-			    
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-				<td class="menu_item">
-					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-					</ul>
-				</td>
-			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
-			    </select>
-				</td>
-			    
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-				<td class="menu_item">
-					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-					</ul>
-				</td>
-			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
-			    </select>
-				</td>
-			    
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-				<td class="menu_item">
-					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-					</ul>
-				</td>
-			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
-			    </select>
-				</td>
-			    
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-				<td class="menu_item">
-					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-					</ul>
-				</td>
-			    <td class="menu_item" style="float:right">
-			    <select id="status" name="status">
-			      <option value="pending">pending</option>
-			      <option value="processed">Processed</option>
-			      <option value="on_the_way">On the way</option>
-			      <option value="delivered">Delivered</option>
-			    </select>
-				</td>
-			    
-			</tr>
-			<!--one order end-->
+						<?php	
+						
+					}
+				}
+				?>
+			
+			
 
 		</table>
 		</form>

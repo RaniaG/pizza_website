@@ -1,9 +1,14 @@
 
 body {
-    font-family: "Lato", sans-serif;
-    background-color: blue; 
+    font-family: "Lato", sans-serif; 
 }
-
+#name{
+    font-size: 30px;
+    padding: 10px;
+    color:#0cc519;
+    background-color:#DCDCDC;
+    font-weight: bold;
+}
 #sidebar {
     height: 100%;
     width:200px;

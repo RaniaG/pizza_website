@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	    <?php 
+		    session_start();
+		    $q="select * from suggestions";
+		    require("php/db_connect.php");
+		    $conn=db_connect();
+		    $res=mysqli_query($conn,$q);
+		  ?>
 	<style type="text/css">
 	tr{
 		border-bottom: 1px solid grey;
@@ -45,12 +52,18 @@
 <!--side menu-->
 <div id="sidebar">
 	<div class="list-group">
-		<a href="admin_index.html"  class="list-group-item ">Home</a>
+			<a href="" class="list-group-item" id="name"><?php 
+		if(isset($_SESSION['name']))
+			echo  $_SESSION['name'];
+		else header('Location: admin_login.html');
+			?></a><hr>
+	<a href="admin_index.html"  class="list-group-item ">Home</a>
 	  <a href="admin_orders.html" class="list-group-item ">View Orders</a>
 	  <a href="admin_menu.html" class="list-group-item">Modify Menu</a>
 	  <a href="admin_info.html" class="list-group-item">Modify Information</a>
-	  <a href="admin_reviews.html" class="list-group-item">Reviews</a>
+	  
 	  <a href="admin_sug.html" class="list-group-item">Suggestions</a>
+	  <a href="php/admin_logout.php" class="list-group-item">Logout</a>
 	</div>
 
 </div>
@@ -67,65 +80,33 @@
 	<div id="menu_div">
 
 		<table id="menu_table">
+		
 			<!--one order-->
+			<?php
+				if(mysqli_num_rows($res) > 0)
+				{
+					while($row = mysqli_fetch_array($res))
+					{
+			?>
 			<tr>
-			    <td colspan="3" class="menu_item" id="msg_id1" >
-					subject
+			    <td colspan="2" class="menu_item" id="<?php echo 'p'.$row['ID']?>">
+					<?php echo $row['subject']?>
 				</td>
 			</tr>
-			<tr class="hidden_msg" id="msg_id1">
+			<tr class="hidden_msg" id="<?php echo 'p'.$row['ID']?>">
 			    <td class="menu_item" >
-			    	name
-				</td>
-				<td class="menu_item">
-					email
+			    	<?php echo $row['name']?><br>
+			    	<?php echo $row['email']?><br>
 				</td>
 			    <td class="menu_item" >
-			    	message
-				</td>
-
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-			    <td colspan="3" class="menu_item" id="msg_id2">
-					subject
-				</td>
-			</tr>
-			<tr class="hidden_msg" id="msg_id2">
-			    <td class="menu_item" >
-			    	name
-				</td>
-				<td class="menu_item">
-					email
-				</td>
-			    <td class="menu_item" >
-			    	message
-				</td>
-
-			</tr>
-			<!--one order end-->
-			<!--one order-->
-			<tr>
-			    <td colspan="3" class="menu_item" id="msg_id3">
-					subject
-				</td>
-			</tr>
-			<tr class="hidden_msg" id="msg_id3">
-			    <td class="menu_item" >
-			    	name
-				</td>
-				<td class="menu_item">
-					email
-				</td>
-			    <td class="menu_item" >
-			    	message
+			    	<?php echo $row['suggestion']?><br>
 				</td>
 
 			</tr>
 			<!--one order end-->
 			
-
+			<?php }}
+			?>
 		</table>
 	</div>
 	</div>
@@ -136,7 +117,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $("td").click(function(){
-        $("tr#"+this.id).slideToggle("slow");
+        $("tr#"+this.id).toggle();
     });
 });
 </script>
