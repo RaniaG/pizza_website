@@ -5,7 +5,7 @@
 		session_start();
 		require('php/db_connect.php');
 		$conn=db_connect();
-		$query="select Name, rate from item";
+		$query="select Name, rate ,ratecount from item";
 		$result=mysqli_query($conn, $query);
 
 	?>
@@ -71,7 +71,11 @@
   			<!--one menu item-->
 			<tr class="menu_row">
 			    <td class="menu_item"><?php echo $row['Name']?></td>
-			    <td class="menu_item"><?php echo $row['rate']?></td>
+			    <td class="menu_item"><?php 
+			    	if($row['ratecount']>0)
+			    	echo $row['rate']/$row['ratecount'];
+			    	else echo $row['rate'];
+			    	?></td>
 			</tr>
 			<?php
 				}

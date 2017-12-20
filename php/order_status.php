@@ -14,16 +14,18 @@ require('db_connect.php');
 
 			$Result=$row['status'];
 		
-	}
+	
 	if ($Result==0)
 		$i="pending";
 	elseif ($Result==1)
 		$i="processed";
 	if ($Result==2)
 		$i="On the way";
-	else
+	else if ($Result==3)
 		$i="delivered";
 		
-	echo("Your Order is ".$i);	
-	
+	header('Location: ../order_status.html?st='.$i.'&orn='.$_POST['order_number']);
+	}
+	else 
+	header('Location: ../order_status.html');
 ?>
