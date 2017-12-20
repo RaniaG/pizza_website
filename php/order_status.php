@@ -24,6 +24,6 @@ require('db_connect.php');
 	else
 		$i="delivered";
 	
-	alert("Your Order is ",$i);	
+	alert("Your Order is ".$i);	
 	
 ?>
