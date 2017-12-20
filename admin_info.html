@@ -52,15 +52,16 @@
           <?php
         if(mysqli_num_rows($res) > 0)
         {
-          $row = mysqli_fetch_array($res))
+          $row = mysqli_fetch_array($res);
+
           
           ?>
   	 			Address:<br>
-  	 			<input type="text" name="Address" value="<?php $row['Address']?>"><br>
+  	 			<input type="text" name="Address" value="<?php echo $row['Address']?>"><br>
   	 			Email:<br>
-  	 			<input type="email" name="Email" value="<?php $row['Email']?>"><br>
+  	 			<input type="email" name="Email" value="<?php echo $row['Email']?>"><br>
   	 			Telephone:<br>
-  	 			<input type="tel" name="phone" value="<?php $row['phone']?>"><br>
+  	 			<input type="tel" name="phone" value="<?php echo $row['phone']?>"><br>
   	 			<button type="button" class="btn btn-default">Update</button>
           <?php }?>
   	 		</form>

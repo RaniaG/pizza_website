@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
+	<?php
+
+	?>
 	
 	<link rel="stylesheet" href="css/menu.css">
 	<meta charset="utf-8">
@@ -27,6 +30,10 @@
 
 
 
+<form method="post" action="checkout.html" >
+	<div id="checkout">
+		<button type="submit" class="btn btn-success" >Checkout</button>						
+	</div>
 
 	<!--Menu-->
 	<div id="menu_div">	
@@ -35,24 +42,23 @@
 			
 			<tr>
 				<td>
-				<form method="post" action="checkout.html" >
-						
 					<input type="checkbox" class="check" name="checked[]" value="ID">
+					
 					<!--to access the post array $_POST['checked'][0]=ID of checked-->
 				</form>
 				</td>
 			    <td class="menu_item">Title</td>
 			    <td class="menu_item">Price</td>
 			    <td>
-			    	<form id="#" method="post" action="#" >
+			    	<form method="post" action="#" >
 			    	<span class="rating">
-		                <input id="rating4" type="radio" name="rating" value="4" form="#">
+		                <input id="rating4" type="radio" name="rating[]" value="4">
 		                <label for="rating4">4</label>
-		                <input id="rating3" type="radio" name="rating" value="3" form="#">
+		                <input id="rating3" type="radio" name="rating[]" value="3">
 		                <label for="rating3">3</label>
-		                <input id="rating2" type="radio" name="rating" value="2" form="#">
+		                <input id="rating2" type="radio" name="rating[]" value="2">
 		                <label for="rating2">2</label>
-		                <input id="rating1" type="radio" name="rating" value="1" form="#">
+		                <input id="rating1" type="radio" name="rating[]" value="1">
 		                <label for="rating1">1</label>
             		</span>
             		
@@ -61,7 +67,7 @@
 			<tr>
 				<td colspan="3" class="menu_item_des" >description</td>
 				<td  style="float: right;"> 
-					<button type="submit" class="btn " form="#" >Rate</button></td>
+					<button type="submit" class="btn" form="#" >Rate</button></td>
 				</form>
 				
 			</tr>
@@ -72,10 +78,7 @@
 			
 		</table>
 	</div>
-	<div id="checkout">
-			<button type="submit" class="btn btn-success" form="orders">Checkout</button>
-			
-	</div>
+	
 </form>
 </body>
 </html>
